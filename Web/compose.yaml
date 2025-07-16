@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: jenkins-backend
+    networks:
+      - jen_back-net
+  
+  frontend:
+    build: ./frontend
+    container_name: jenkins-frontend
+    networks:
+      - jen_front-net
+      - jen_back-net
+    ports:
+      - "3000:80"
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+  ssh-agent:
+    image: jenkins/ssh-agent
+volumes:
+  jenkins_home:
+
+networks:
+  jen_back-net:
+  jen_front-net:
