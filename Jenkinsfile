@@ -3,9 +3,10 @@ pipeline {
     stages {
         stage('Python Control'){
             steps{
-                sh 'python --version
+                sh '''python --version
                     docker version
-                    docker info'
+                    docker info
+                '''  
             }
         }
         // stage('install dependencies'){
