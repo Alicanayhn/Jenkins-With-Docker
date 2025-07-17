@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Python Control'){
             steps{
-                sh '''python --version
+                sh '''
                     docker version
                     docker info
                 '''  
