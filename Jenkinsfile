@@ -26,7 +26,7 @@ pipeline {
             steps {
                 sh '''
                     . $VENV/bin/activate
-                    python -m unittest discover -s test
+                    python -m unittest discover -s tests
                 '''
             }
         }
