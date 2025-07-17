@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment{
+        VENV = 'venv'
+    }
     stages {
         stage('Python Control'){
             steps{
@@ -15,10 +18,17 @@ pipeline {
         //     }  
 
         // }
-        // stage('Tests'){
-        //     steps{
-        //         sh '''test/test_app.py'''
-        //     }
-        // }
+        stage('set venv'){
+            steps{
+                bat 'python -m venv %VENV%'
+                bat '%VENV%\\Scripts\\python -m pip install --upgrate pip'
+                bat '½VENV%\\Scripts\\pip install -r backend/requirements.txt'
+            }
+        }
+        stage('Tests'){
+            steps{
+                bat '%VENV%\\Scripts\\python -m unittest discover -s tests'
+            }
+        }
     }
 }
