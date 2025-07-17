@@ -22,7 +22,7 @@ pipeline {
                 '''
             }
         }
-        stage('Tests') {
+        stage('Test') {
             steps {
                 sh '''
                     . $VENV/bin/activate
