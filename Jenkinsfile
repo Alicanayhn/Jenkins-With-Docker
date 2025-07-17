@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('install dependencies'){
             steps{
-                sh ''' pip install -r backend/requirements.txt'''
+                sh 'pip install -r backend/requirements.txt'
             }  
 
         }
