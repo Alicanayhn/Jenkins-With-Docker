@@ -9,7 +9,7 @@ pipeline {
                 sh '''
                     docker version
                     docker info
-                    docker container ls --all
+                    docker container ls
                 '''
             }
         }
