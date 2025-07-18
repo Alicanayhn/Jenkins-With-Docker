@@ -10,7 +10,7 @@ pipeline {
                     docker version
                     docker info
                     docker container ls
-                    docker network ls --all
+                    docker network ls
                 '''
             }
         }
