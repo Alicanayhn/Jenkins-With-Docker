@@ -3,7 +3,7 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-@app.route("/api/v1/users/control", methods= ['GET'])
+@app.route("/api/v1/users/control", methods=['GET'])
 def api_control():
     num = 1500
     data = {'data': num}
