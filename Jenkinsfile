@@ -36,7 +36,6 @@ pipeline {
     post {
         always{
             junit{
-                allowEmptyResults: true,
                 testResults: '**/target/*-reports/TEST-*.xml'
             }
         }
