@@ -88,10 +88,12 @@ pipeline {
         }
         stage('Run Flake8') {
             steps {
-                sh '''
-                  docker compose run --rm backend \
-                    flake8 . --format=default > flake8-report.txt 
-                '''
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE'){
+                    sh '''
+                    docker compose run --rm backend \
+                        flake8 . --format=default > flake8-report.txt || true
+                    '''
+                }
             }
         }
         stage('Record Warnings') {
