@@ -35,7 +35,10 @@ pipeline {
         }
         stage('Run Flake8') {
             steps {
-                sh 'flake8 . --format=pylint > flake8-report.txt'
+                sh '''
+                . $VENV/bin/activate
+                flake8 . --format=pylint > flake8-report.txt
+                '''
             }
         }
 
