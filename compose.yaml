@@ -16,16 +16,16 @@ services:
     ports:
       - "3000:80"
 
-  jenkins:
-    image: jenkins/jenkins:lts
-    ports:
-      - "8080:8080"
-    volumes:
-      - jenkins_home:/var/jenkins_home
-  ssh-agent:
-    image: jenkins/ssh-agent
-volumes:
-  jenkins_home:
+#   jenkins:
+#     image: jenkins/jenkins:lts
+#     ports:
+#       - "8080:8080"
+#     volumes:
+#       - jenkins_home:/var/jenkins_home
+#   ssh-agent:
+#     image: jenkins/ssh-agent
+# volumes:
+#   jenkins_home:
 
 networks:
   jen_back-net:
