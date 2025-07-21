@@ -35,15 +35,17 @@ pipeline {
         // }
         stage('Test') {
             steps {
-                 sh 'docker compose run --rm backend /
-                     python -m unittest discover -s tests'
-                }
+                 sh '''
+                    docker compose run --rm backend
+                    python -m unittest discover -s tests
+                '''
             }
+        }
         stage('Run Flake8') {
             steps {
                 sh '''
-                . $VENV/bin/activate
-                flake8 . --format=default > flake8-report.txt || true
+                    . $VENV/bin/activate
+                    flake8 . --format=default > flake8-report.txt || true
                 '''
             }
         }
