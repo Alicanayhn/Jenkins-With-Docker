@@ -37,7 +37,7 @@ pipeline {
             steps {
                 sh '''
                 . $VENV/bin/activate
-                flake8 . --format=pylint > flake8-report.txt
+                flake8 . --format=default > flake8-report.txt
                 '''
             }
         }
