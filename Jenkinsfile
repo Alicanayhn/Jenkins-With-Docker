@@ -33,6 +33,11 @@ pipeline {
         //         '''
         //     }
         // }
+        stage('Build & deps') {
+            steps {
+                sh 'docker compose build'
+            }
+        }
         stage('Test') {
             steps {
                  sh '''
