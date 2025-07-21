@@ -94,6 +94,11 @@ pipeline {
                 '''
             }
         }
+        stage('Record Warnings') {
+            steps {
+                recordIssues tools: [flake8(pattern: 'flake8-report.txt')]
+            }
+        }
     }
     post {
         always {
