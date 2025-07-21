@@ -35,7 +35,8 @@ pipeline {
         // }
         stage('Test') {
             steps {
-                 sh 'docker compose run --rm flask-app python -m unittest discover -s tests'
+                 sh 'docker compose run --rm backend
+                     python -m unittest discover -s tests'
                 }
             }
         stage('Run Flake8') {
