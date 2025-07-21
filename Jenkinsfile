@@ -35,7 +35,7 @@ pipeline {
     }
     post {
         always{
-            junit{
+            j unit{
                 testResults: '**/target/*-reports/TEST-*.xml'
             }
         }
