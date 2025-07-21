@@ -33,11 +33,4 @@ pipeline {
             }
         }
     }
-    post {
-        always{
-            j unit{
-                testResults: '**/target/*-reports/TEST-*.xml'
-            }
-        }
-    }
 }
