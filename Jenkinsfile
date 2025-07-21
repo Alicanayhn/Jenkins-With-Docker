@@ -33,13 +33,11 @@ pipeline {
         //         '''
         //     }
         // }
-        stages {
         stage('Test') {
             steps {
                  sh 'docker-compose run --rm flask-app python -m unittest discover -s tests'
                 }
             }
-        }
         stage('Run Flake8') {
             steps {
                 sh '''
