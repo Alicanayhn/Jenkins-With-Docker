@@ -36,7 +36,7 @@ pipeline {
         stage('Test') {
             steps {
                  sh '''
-                    docker compose run --rm backend
+                    docker compose run --rm backend \
                     python -m unittest discover -s tests
                 '''
             }
