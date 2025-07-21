@@ -62,6 +62,9 @@
 
 pipeline {
     agent any
+    options {
+        skipStagesAfterUnstable(false)
+    }
     stages {
         stage('Python Control') {
             steps {
