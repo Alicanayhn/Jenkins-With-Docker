@@ -25,12 +25,19 @@ pipeline {
                 '''
             }
         }
+        // stage('Test') {
+        //     steps {
+        //         sh '''
+        //             . $VENV/bin/activate
+        //             python -m unittest discover -s tests
+        //         '''
+        //     }
+        // }
+        stages {
         stage('Test') {
             steps {
-                sh '''
-                    . $VENV/bin/activate
-                    python -m unittest discover -s tests
-                '''
+                 sh 'docker-compose run --rm flask-app python -m unittest discover -s tests'
+                }
             }
         }
         stage('Run Flake8') {
