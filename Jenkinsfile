@@ -90,7 +90,7 @@ pipeline {
             steps {
                 sh '''
                   docker compose run --rm backend \
-                    flake8 . --format=default > flake8-report.txt || true
+                    flake8 . --format=default > flake8-report.txt 
                 '''
             }
         }
