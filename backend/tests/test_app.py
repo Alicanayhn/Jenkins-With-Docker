@@ -1,5 +1,5 @@
 import unittest
-from backend.app import app  # varsayalım ki app.py'de Flask app tanımlı
+from app import app # varsayalım ki app.py'de Flask app tanımlı
 
 class BasicTestCase(unittest.TestCase):
     def test_home(self):
