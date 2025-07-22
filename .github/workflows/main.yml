@@ -51,15 +51,3 @@ jobs:
       - name: Run a script
         run: |
           echo "I am runnig in PROD env"
-
-
-
-
-
-
-
-
-
-
-    
-  
