@@ -38,7 +38,7 @@ jobs:
 
       - name: Run test scripts
         run: |
-          python -m unittest tests
+          python -m unittest -s tests
 
 
   PROD:
