@@ -1,0 +1,55 @@
+name: Simple manual workflow
+
+on:
+
+  workflow_dispatch:
+
+jobs:
+
+  DEV:
+    runs-on: ubuntu-latest
+    environment: DEV
+
+    steps:
+      - uses: actions/checkout@v2
+  
+      - name: Run a script
+        run: |
+          echo "I am running in dev env"
+
+
+  QA:
+    runs-on: ubuntu-latest
+    environment: QA
+    needs: DEV
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a script
+        run: |
+          echo "I am running in QA env"
+
+
+  PROD:
+    runs-on: ubuntu-latest
+    environment: PROD
+    needs: QA
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a script
+        run: |
+          echo "I am runnig in PROD env"
+
+
+
+
+
+
+
+
+
+
+    
+  
