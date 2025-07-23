@@ -2,11 +2,16 @@ import unittest
 from backend.app import app
 
 class BasicTestCase(unittest.TestCase):
-    def test_home(self):
-        tester = app.test_client(self)
-        response = tester.get('/')
-        self.assertEqual(response.status_code, 200) 
+    def setUp(self):
+        self.tester = app.test_client(self)
 
-        # Bu satir dev branchinde yazıldı
+    def test_home_status_code(self):
+        response = self.tester.get('/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_home_content(self):
+        response = self.tester.get('/')
+        self.assertEqual(response.data.decode("utf-8"), "Uygulama Calisiyor!")
+
 if __name__ == '__main__':
     unittest.main()
