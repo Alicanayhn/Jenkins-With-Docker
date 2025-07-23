@@ -2,14 +2,12 @@ name: Simple manual workflow
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
 
   DEV:
     runs-on: ubuntu-latest
-    environment: DEV
+    environment:  
 
     steps:
       - uses: actions/checkout@v2
