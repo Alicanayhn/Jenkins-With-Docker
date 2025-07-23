@@ -3,8 +3,6 @@ name: Simple manual workflow
 on:
   push:
     branches:
-      - dev
-      - test
       - main
 
 jobs:
