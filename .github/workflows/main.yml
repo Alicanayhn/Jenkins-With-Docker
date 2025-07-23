@@ -2,13 +2,18 @@ name: Simple manual workflow
 
 on:
   push:
+    branches:
+      - dev
+      - test
+      - main
 
 jobs:
 
   DEV:
     runs-on: ubuntu-latest
-    environment:  
+    environment: DEV
 
+    if: github.ref == 'refs/heads/dev'
     steps:
       - uses: actions/checkout@v2
   
@@ -21,6 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: QA
 
+    if: github.ref == 'refs/heads/test'
     steps:
       - uses: actions/checkout@v2
 
@@ -45,6 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: PROD
 
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
       - name: Run a script
