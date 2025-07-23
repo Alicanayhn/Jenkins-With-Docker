@@ -71,7 +71,7 @@
 pipeline {
     agent any
     stages {
-        stage('Python Control') {
+        stage('Docker Control') {
             steps {
                 sh '''
                     docker version
