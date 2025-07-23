@@ -4,13 +4,15 @@ on:
   push:
     branches:
       - main
-
+      - dev
+      - test
 jobs:
 
   DEV:
     runs-on: ubuntu-latest
     environment: DEV
 
+    if: github.ref == 'refs/heads/dev'
     steps:
       - uses: actions/checkout@v2
   
@@ -22,8 +24,8 @@ jobs:
   QA:
     runs-on: ubuntu-latest
     environment: QA
-    needs: DEV
 
+    if: github.ref == 'refs/heads/test'
     steps:
       - uses: actions/checkout@v2
 
@@ -47,8 +49,8 @@ jobs:
   PROD:
     runs-on: ubuntu-latest
     environment: PROD
-    needs: QA
 
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
       - name: Run a script
