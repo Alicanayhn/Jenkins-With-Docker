@@ -7,7 +7,7 @@ app = Flask(__name__)
 def api_control():
     num = 1500
     data = {'data': num}
-
+    print(type(data))
     return jsonify(data)
 
 @app.route("/")
