@@ -1,5 +1,5 @@
 import unittest
-from backend.app import app
+from backend.app import app 
 
 class BasicTestCase(unittest.TestCase):
     def setUp(self):
@@ -12,6 +12,10 @@ class BasicTestCase(unittest.TestCase):
     def test_home_content(self):
         response = self.tester.get('/')
         self.assertEqual(response.data.decode("utf-8"), "Uygulama Calisiyor!")
+
+    def test_api_control_status_code(self):
+        response = self.tester.get('/api/v1/users/control')
+        self.assertEqual(response.status_code, 200)
 
 if __name__ == '__main__':
     unittest.main()
