@@ -7,5 +7,6 @@ class BasicTestCase(unittest.TestCase):
         response = tester.get('/')
         self.assertEqual(response.status_code, 200) 
 
+        # Bu satir dev branchinde yazıldı
 if __name__ == '__main__':
     unittest.main()
