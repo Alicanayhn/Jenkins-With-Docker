@@ -18,5 +18,7 @@ class BasicTestCase(unittest.TestCase):
         response = self.tester.get('/api/v1/users/control')
         self.assertEqual(response.status_code, 200)
 
+
+
 if __name__ == '__main__':
     unittest.main()
