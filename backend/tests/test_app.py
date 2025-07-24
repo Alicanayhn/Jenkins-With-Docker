@@ -11,6 +11,7 @@ class BasicTestCase(unittest.TestCase):
 
     def test_home_content(self):
         response = self.tester.get('/')
+        print('Uygulama Calisiyor')
         self.assertEqual(response.data.decode("utf-8"), "Uygulama Calisiyor!")
 
     def test_api_control_status_code(self):
