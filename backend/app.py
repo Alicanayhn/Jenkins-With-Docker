@@ -13,6 +13,11 @@ def api_control():
     return jsonify(data)
 
 
+@app.route("/health", methods=["GET"])
+def health_check():
+    return "OK", 200
+
+
 @app.route("/")
 def index():
     return "Uygulama Calisiyor!"
