@@ -13,6 +13,22 @@ def api_control():
     return jsonify(data)
 
 
+@app.route("/health", methods=["GET"])
+def health_check():
+    return "OK", 200
+
+
+@app.route("/ready", methods=["GET"])
+def readiness_check():
+    return "READY", 200
+
+
+# CREATE a simple route to test if the application is running
+@app.route("/test", methods=["GET"])
+def test():
+    return "Application is running", 200
+
+
 @app.route("/")
 def index():
     return "Uygulama Calisiyor!"
