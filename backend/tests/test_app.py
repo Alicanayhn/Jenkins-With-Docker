@@ -14,6 +14,12 @@ class BasicTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Unit Test Example", response.data)
 
+    def control_endpoint_test(self):
+        tester = app.test_client(self)
+        response = tester.get("/control-endpoint")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Control Endpoint", response.data)
+
 
 if __name__ == "__main__":
     unittest.main()
